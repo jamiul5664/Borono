@@ -214,7 +214,7 @@
   .claw-assembly {
     position: absolute;
     top: 14px;
-    left: 45%; /* Dynamically animated in JS */
+    left: 42%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -249,20 +249,20 @@
     flex-direction: column;
     align-items: center;
     transform-origin: top center;
-    transform: rotate(0deg); /* JS physics updates this */
+    transform: rotate(0deg);
     will-change: transform;
   }
 
   .claw-string {
     width: 2.5px;
-    height: 38px; /* Animates when lowering down */
+    height: 38px;
     background: repeating-linear-gradient(180deg, #ccc, #ccc 3px, #888 3px, #888 6px);
     box-shadow: 1px 0 2px rgba(0,0,0,0.25);
-    transition: height 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: height 0.75s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .claw-hub {
-    width: 24px;
+    width: 26px;
     height: 14px;
     background: linear-gradient(180deg, #ff8ca2 0%, #e65b77 100%);
     border-radius: 7px;
@@ -272,63 +272,77 @@
     z-index: 5;
   }
 
+  /* Prongs Wrapper - Holds both the metallic claws and the captured prize */
   .claw-prongs-wrapper {
     position: relative;
-    width: 48px;
-    height: 34px;
+    width: 50px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Metallic Silver Prongs with Realistic 3D Shading */
   .prong {
     position: absolute;
-    top: -2px;
+    top: 0px;
     width: 14px;
-    height: 32px;
-    transition: transform 0.25s ease;
+    height: 34px;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
   }
 
   .prong-left {
-    left: 6px;
+    left: 4px;
     border-left: 4px solid #b4bcc6;
     border-bottom: 4px solid #959fa9;
     border-radius: 0 0 0 16px;
     transform-origin: top right;
-    transform: rotate(24deg);
-    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.15));
+    transform: rotate(26deg);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));
   }
 
   .prong-right {
-    right: 6px;
+    right: 4px;
     border-right: 4px solid #b4bcc6;
     border-bottom: 4px solid #959fa9;
     border-radius: 0 0 16px 0;
     transform-origin: top left;
-    transform: rotate(-24deg);
-    filter: drop-shadow(-1px 2px 2px rgba(0,0,0,0.15));
+    transform: rotate(-26deg);
+    filter: drop-shadow(-1px 2px 2px rgba(0,0,0,0.2));
   }
 
-  /* Prongs Grasping */
+  /* Prongs Grasping firmly around the capsule */
   .claw-assembly.closed .prong-left {
-    transform: rotate(56deg) translateX(5px);
+    transform: rotate(58deg) translateX(6px);
   }
   .claw-assembly.closed .prong-right {
-    transform: rotate(-56deg) translateX(-5px);
+    transform: rotate(-58deg) translateX(-6px);
   }
 
-  /* Held Capsule Hanging on Claw */
+  /* Held Capsule Locked firmly INSIDE the Claw Prongs */
   .held-capsule {
     position: absolute;
-    top: 28px;
-    width: 36px;
-    height: 36px;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: none;
     align-items: center;
     justify-content: center;
     font-size: 1.15rem;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    z-index: 15;
-    border: 1.5px solid rgba(255,255,255,0.9);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    z-index: 4;
+    border: 1.5px solid rgba(255,255,255,0.95);
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #ff8da1 45%);
+    animation: capsulePulledVibrate 0.15s infinite alternate ease-in-out;
+  }
+
+  @keyframes capsulePulledVibrate {
+    0% { transform: translateX(-50%) rotate(-1deg); }
+    100% { transform: translateX(-50%) rotate(1deg); }
   }
 
   /* Chamber Floor Pattern */
@@ -382,7 +396,7 @@
     50% { transform: scale(1.15); }
   }
 
-  /* Realistic 3D Gacha Capsules on Floor with Gloss Highlights */
+  /* 3D Gacha Capsules on Floor with Gloss Highlights */
   .capsule-item {
     position: absolute;
     width: 40px;
@@ -395,11 +409,14 @@
     justify-content: center;
     font-size: 1.15rem;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease, opacity 0.25s ease;
     z-index: 8;
   }
 
-  /* Specular Highlight Sheen on every capsule */
+  .capsule-item:hover {
+    transform: scale(1.12);
+  }
+
   .capsule-item::before {
     content: '';
     position: absolute;
@@ -782,12 +799,12 @@
           <div class="claw-pendulum" id="clawPendulum">
             <div class="claw-string" id="clawString"></div>
             <div class="claw-hub"></div>
-            <div class="claw-prongs-wrapper">
+            <div class="claw-prongs-wrapper" id="prongsWrapper">
               <div class="prong prong-left"></div>
               <div class="prong prong-right"></div>
+              <!-- Held Prize Capsule inside the prongs -->
+              <div class="held-capsule" id="heldCapsule">💌</div>
             </div>
-            <!-- Held Prize Capsule -->
-            <div class="held-capsule" id="heldCapsule">💌</div>
           </div>
         </div>
 
@@ -797,7 +814,7 @@
           <span class="chute-heart">♥</span>
         </div>
 
-        <!-- Real Target Capsules on Floor -->
+        <!-- Target Capsules on Floor -->
         <div class="capsule-item cap-1" id="c1" data-x="18" data-icon="💌">💌</div>
         <div class="capsule-item cap-2" id="c2" data-x="30" data-icon="🎁">🎁</div>
         <div class="capsule-item cap-3" id="c3" data-x="42" data-icon="🌸">🌸</div>
@@ -834,7 +851,7 @@
 
         <!-- Instructions -->
         <div class="instruction-text">
-          Move the joystick, then press Grab.
+          Aim with joystick or click a prize, then press Grab!
         </div>
 
         <!-- Big Spring Grab Button -->
@@ -898,7 +915,6 @@
     if (audioCtx.state === 'suspended') audioCtx.resume();
   }
 
-  // Mechanical motor whirring sound while moving
   let motorOsc = null;
   let motorGain = null;
   function startMotorSound() {
@@ -922,7 +938,6 @@
     }
   }
 
-  // Metallic ratchet click when descending / grabbing
   function playClankSound() {
     initAudio();
     if (!audioCtx) return;
@@ -939,7 +954,6 @@
     osc.stop(audioCtx.currentTime + 0.08);
   }
 
-  // Celebration Fanfare
   function playCelebrationFanfare() {
     initAudio();
     if (!audioCtx) return;
@@ -960,7 +974,6 @@
     });
   }
 
-  // Confetti
   function triggerConfetti() {
     if (typeof confetti === 'function') {
       confetti({
@@ -987,14 +1000,12 @@
   const closeModalBtn = document.getElementById('closeModalBtn');
   const replayPill = document.getElementById('replayPill');
 
-  // Capsule elements sitting on floor
   const capsules = Array.from(document.querySelectorAll('.capsule-item'));
 
-  // Physics state
-  let trolleyX = 42; // Percentage along chamber (15% to 68%)
+  let trolleyX = 42;
   let targetVelocityX = 0;
   let currentVelocityX = 0;
-  let swingAngle = 0; // Current pendulum sway angle in degrees
+  let swingAngle = 0;
   let swingAngularVel = 0;
 
   const MIN_X = 14;
@@ -1003,24 +1014,19 @@
 
   let isOperating = false;
 
-  // Real-time animation loop for smooth crane inertia and swinging cable
   function physicsLoop() {
     if (!isOperating) {
-      // Smoothly approach target velocity
       currentVelocityX += (targetVelocityX - currentVelocityX) * 0.2;
       trolleyX += currentVelocityX;
 
-      // Enforce bounds
       if (trolleyX < MIN_X) { trolleyX = MIN_X; currentVelocityX = 0; }
       if (trolleyX > MAX_X) { trolleyX = MAX_X; currentVelocityX = 0; }
 
       clawAssembly.style.left = trolleyX + '%';
 
-      // Pendulum swinging physics: acceleration creates tilt
-      const acceleration = (targetVelocityX - currentVelocityX);
-      const targetSwing = -currentVelocityX * 22; // Swing proportional to speed
+      const targetSwing = -currentVelocityX * 22;
       swingAngularVel += (targetSwing - swingAngle) * 0.12;
-      swingAngularVel *= 0.85; // Damping
+      swingAngularVel *= 0.85;
       swingAngle += swingAngularVel;
 
       clawPendulum.style.transform = `rotate(${swingAngle}deg)`;
@@ -1029,7 +1035,7 @@
   }
   requestAnimationFrame(physicsLoop);
 
-  // Analog Joystick Pointer Dragging
+  // Joystick Dragging
   let isDraggingStick = false;
   let stickOrigin = { x: 0, y: 0 };
 
@@ -1055,7 +1061,7 @@
 
     joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
 
-    // Convert horizontal deflection into analog velocity
+    // Horizontal deflection
     const normalizedX = dx / maxRadius;
     if (Math.abs(normalizedX) > 0.15) {
       targetVelocityX = normalizedX * 0.85;
@@ -1063,6 +1069,12 @@
     } else {
       targetVelocityX = 0;
       stopMotorSound();
+    }
+
+    // Pulling down triggers grab
+    if (dy > 18) {
+      executeGrab();
+      handleStickEnd();
     }
   }
 
@@ -1083,6 +1095,31 @@
   window.addEventListener('pointerup', handleStickEnd);
   window.addEventListener('pointercancel', handleStickEnd);
 
+  // Clicking on any capsule auto-aims and pulls it up!
+  capsules.forEach(cap => {
+    cap.addEventListener('click', () => {
+      if (isOperating) return;
+      const targetX = parseFloat(cap.dataset.x);
+      glideToAndGrab(targetX);
+    });
+  });
+
+  function glideToAndGrab(targetX) {
+    if (isOperating) return;
+    isOperating = true;
+    startMotorSound();
+    clawAssembly.style.transition = 'left 0.4s ease-out';
+    clawAssembly.style.left = targetX + '%';
+    trolleyX = targetX;
+
+    setTimeout(() => {
+      stopMotorSound();
+      clawAssembly.style.transition = 'none';
+      isOperating = false;
+      executeGrab();
+    }, 420);
+  }
+
   // Keyboard controls
   window.addEventListener('keydown', (e) => {
     if (isOperating || modalOverlay.classList.contains('show')) return;
@@ -1092,7 +1129,7 @@
     } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
       targetVelocityX = 0.85;
       startMotorSound();
-    } else if (e.key === ' ' || e.key === 'Enter') {
+    } else if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       executeGrab();
     }
@@ -1105,26 +1142,21 @@
     }
   });
 
-  // ---------------- Realistic Grab Execution ----------------
+  // ---------------- REAL PULL-UP GRAB EXECUTION ----------------
   function executeGrab() {
     if (isOperating) return;
     isOperating = true;
     handleStickEnd();
     grabBtn.classList.add('disabled', 'pressed');
 
-    // Settle pendulum to center before lowering
-    clawPendulum.style.transition = 'transform 0.3s ease-out';
+    clawPendulum.style.transition = 'transform 0.25s ease-out';
     clawPendulum.style.transform = 'rotate(0deg)';
 
-    // Step 1: Lower the claw down over the exact floor position
+    // Step 1: Lower the claw all the way down to touch the capsules
     playClankSound();
-    clawString.style.height = '148px';
+    clawString.style.height = '154px';
 
     setTimeout(() => {
-      // Step 2: Claw closes prongs
-      clawAssembly.classList.add('closed');
-      playClankSound();
-
       // Find closest capsule to trolleyX
       let closestCap = null;
       let minDistance = 999;
@@ -1139,19 +1171,22 @@
         }
       });
 
-      // Grab the prize
       const prizeIcon = closestCap ? closestCap.dataset.icon : '💌';
-      if (closestCap) {
-        closestCap.style.opacity = '0';
-      }
 
-      heldCapsule.textContent = prizeIcon;
-      heldCapsule.style.display = 'flex';
+      // Step 2: Claw closes prongs directly over the floor capsule
+      clawAssembly.classList.add('closed');
+      playClankSound();
 
       setTimeout(() => {
-        // Step 3: Winch cable reels back up to ceiling
-        clawString.style.height = '38px';
+        // Hide floor capsule and lock it firmly inside the prongs at the bottom!
+        if (closestCap) closestCap.style.opacity = '0';
+        heldCapsule.textContent = prizeIcon;
+        heldCapsule.style.display = 'flex';
+
+        // Step 3: PHYSICALLY PULL THE CAPSULE UPWARD FROM THE FLOOR TO THE TOP!
+        // You watch the cable reel in and hoist the capsule high into the air!
         playClankSound();
+        clawString.style.height = '38px';
 
         setTimeout(() => {
           // Step 4: Crane trolley travels along the rail over to the drop chute
@@ -1166,7 +1201,7 @@
             heldCapsule.style.display = 'none';
             playClankSound();
 
-            // Step 6: Capsule drops down into chute, celebration triggers!
+            // Step 6: Capsule drops into chute, celebration fanfare triggers!
             setTimeout(() => {
               const msg = getRandomMessage();
               prizeMessageText.textContent = msg;
@@ -1187,9 +1222,9 @@
               }, 600);
             }, 350);
           }, 950);
-        }, 700);
-      }, 400);
-    }, 700);
+        }, 800);
+      }, 350);
+    }, 750);
   }
 
   grabBtn.addEventListener('click', executeGrab);
@@ -1234,7 +1269,6 @@
 
   replayPill.addEventListener('click', scrollToTop);
 
-  // Wheel forwarding (when modal is closed)
   window.addEventListener('wheel', (e) => {
     if (modalOverlay.classList.contains('show')) return;
     try {
@@ -1245,7 +1279,6 @@
     } catch (err) {}
   }, { passive: true });
 
-  // Touch swipe support
   let touchStartY = 0;
   window.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
