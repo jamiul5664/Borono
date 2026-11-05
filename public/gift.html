@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>What I Love About You - Claw Machine</title>
+<title>What I Love About You - Real Claw Machine</title>
 <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #f7eaf2;
+    background: #faedf4;
     user-select: none;
     -webkit-user-select: none;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -38,35 +38,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 0.75rem 1rem;
+    padding: 0.4rem 0.5rem 0.8rem;
     overflow: hidden;
-    background: radial-gradient(circle at 50% 30%, #fef3f7 0%, #fae2ec 50%, #f2d2e2 100%);
+    background: radial-gradient(circle at 50% 25%, #fff5f8 0%, #fde6f0 55%, #f4d0e2 100%);
   }
 
-  /* Soft decorative floating hearts in background */
-  .bg-float-heart {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.28;
-    animation: floatHeart 6s infinite ease-in-out;
-  }
-  .h1 { top: 8%; left: 8%; font-size: 2rem; animation-delay: 0s; }
-  .h2 { top: 15%; right: 10%; font-size: 1.8rem; animation-delay: 1.5s; }
-  .h3 { bottom: 12%; left: 10%; font-size: 2.2rem; animation-delay: 3s; }
-  .h4 { bottom: 18%; right: 8%; font-size: 1.6rem; animation-delay: 4.5s; }
-
-  @keyframes floatHeart {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(10deg); }
-  }
-
-  /* Main Claw Machine Container */
+  /* Machine Card Frame */
   .claw-machine-card {
     position: relative;
     width: 100%;
-    max-width: 390px;
-    height: 94vh;
-    max-height: 780px;
+    max-width: 400px;
+    height: 96vh;
+    max-height: 820px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,25 +58,21 @@
 
   /* Top Banner: "What I love about you" */
   .title-banner {
-    width: 92%;
+    width: 90%;
     background: #ffffff;
     border-radius: 9999px;
-    padding: 0.55rem 1.4rem;
-    box-shadow: 0 4px 14px rgba(220, 140, 175, 0.22);
+    padding: 0.5rem 1.4rem;
+    box-shadow: 0 4px 16px rgba(220, 140, 175, 0.22);
     text-align: center;
-    margin-bottom: 0.5rem;
-    border: 1px solid rgba(255, 215, 230, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+    margin-bottom: 0.45rem;
+    border: 1.5px solid rgba(255, 215, 230, 0.9);
   }
 
   .title-banner h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #2b1f24;
+    color: #2b1d24;
     letter-spacing: -0.01em;
   }
 
@@ -102,17 +81,17 @@
     position: relative;
     width: 100%;
     flex: 1;
-    background: linear-gradient(180deg, #ffb8cc 0%, #ffa5be 50%, #f68da9 100%);
-    border-radius: 36px 36px 28px 28px;
+    background: linear-gradient(180deg, #ffadc3 0%, #ff9bb6 45%, #f4809f 100%);
+    border-radius: 36px 36px 26px 26px;
     box-shadow: 
-      0 16px 38px rgba(180, 80, 120, 0.28),
-      inset 0 3px 6px rgba(255, 255, 255, 0.7),
-      inset 0 -4px 8px rgba(190, 80, 115, 0.4);
-    border: 3px solid #ffccd8;
+      0 18px 42px rgba(180, 70, 110, 0.3),
+      inset 0 3px 6px rgba(255, 255, 255, 0.8),
+      inset 0 -5px 10px rgba(170, 60, 95, 0.35);
+    border: 3.5px solid #ffccd9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.6rem 0.75rem 0.85rem;
+    padding: 0.6rem 0.75rem 0.75rem;
     overflow: hidden;
   }
 
@@ -121,9 +100,9 @@
     position: relative;
     width: 100%;
     height: 48px;
-    background: linear-gradient(180deg, #b99bf2 0%, #9e7ce0 100%);
+    background: linear-gradient(180deg, #b897f2 0%, #9974df 100%);
     border-radius: 24px 24px 10px 10px;
-    border: 2px solid #e0c8ff;
+    border: 2px solid #e2cbff;
     box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6), 0 4px 10px rgba(120, 70, 170, 0.25);
     display: flex;
     align-items: center;
@@ -135,7 +114,7 @@
   .roof-bulbs {
     position: absolute;
     top: 5px;
-    width: 88%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
   }
@@ -144,24 +123,23 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #ffeb99;
-    box-shadow: 0 0 6px #ffdf40;
+    background: #ffea88;
+    box-shadow: 0 0 8px #ffdf40;
     animation: bulbGlow 1.2s infinite alternate ease-in-out;
   }
-
   .roof-bulb:nth-child(even) {
     animation-delay: 0.6s;
-    background: #fff5cc;
+    background: #fff8d6;
   }
 
   @keyframes bulbGlow {
-    0% { opacity: 0.45; transform: scale(0.85); }
-    100% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px #ffea60; }
+    0% { opacity: 0.4; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px #ffe550; }
   }
 
   .roof-sign {
     background: #ffffff;
-    padding: 0.25rem 1.1rem;
+    padding: 0.25rem 1.15rem;
     border-radius: 9999px;
     box-shadow: 0 2px 6px rgba(100, 50, 150, 0.25);
     display: flex;
@@ -178,164 +156,191 @@
     letter-spacing: 0.02em;
   }
 
-  /* Glass Chamber (Where the claw and prizes are) */
+  /* Glass Chamber */
   .glass-chamber {
     position: relative;
     width: 100%;
     flex: 1;
-    min-height: 240px;
-    background: #faf0f5;
-    background-image: radial-gradient(#f0d2df 1.2px, transparent 1.2px);
+    min-height: 250px;
+    background: #fbf1f6;
+    background-image: radial-gradient(#edd3df 1.3px, transparent 1.3px);
     background-size: 14px 14px;
     border-radius: 20px;
-    border: 3px solid #ffffff;
+    border: 3.5px solid #ffffff;
     box-shadow: 
-      inset 0 4px 12px rgba(255, 255, 255, 0.8),
-      inset 0 -10px 18px rgba(200, 130, 160, 0.15),
-      0 4px 12px rgba(180, 80, 120, 0.15);
+      inset 0 4px 14px rgba(255, 255, 255, 0.9),
+      inset 0 -12px 20px rgba(200, 130, 160, 0.18),
+      0 4px 14px rgba(180, 80, 120, 0.15);
     overflow: hidden;
+  }
+
+  /* Realistic Glass Specular Reflection */
+  .glass-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 25%, transparent 45%);
+    pointer-events: none;
+    z-index: 25;
   }
 
   /* Top Rail */
   .claw-rail {
     position: absolute;
     top: 14px;
-    left: 12px;
-    right: 12px;
-    height: 8px;
-    background: linear-gradient(180deg, #ffffff 0%, #d8cad2 100%);
+    left: 10px;
+    right: 10px;
+    height: 9px;
+    background: linear-gradient(180deg, #ffffff 0%, #d8cad2 50%, #b8a8b2 100%);
     border-radius: 9999px;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.08);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.1);
   }
 
   .claw-rail-end-l, .claw-rail-end-r {
     position: absolute;
     top: -3px;
-    width: 10px;
-    height: 14px;
-    background: #ff8da1;
+    width: 11px;
+    height: 15px;
+    background: #ff8ca3;
     border-radius: 3px;
+    border: 1px solid #fff;
   }
   .claw-rail-end-l { left: -2px; }
   .claw-rail-end-r { right: -2px; }
 
-  /* Moving Claw Carriage */
+  /* Realistic Claw Crane Assembly with Pendulum Physics */
   .claw-assembly {
     position: absolute;
     top: 14px;
-    left: 45%; /* Animated between 12% and 80% */
+    left: 45%; /* Dynamically animated in JS */
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 20;
-    transition: left 0.15s ease-out;
     pointer-events: none;
+    will-change: left, transform;
   }
 
   .claw-carriage {
-    width: 44px;
-    height: 20px;
+    width: 46px;
+    height: 22px;
     background: linear-gradient(180deg, #ff94aa 0%, #f6728e 100%);
-    border-radius: 10px;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border-radius: 11px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .carriage-heart {
-    font-size: 0.65rem;
-    color: #fff;
+    font-size: 0.72rem;
+    color: #ffffff;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+  }
+
+  /* Pendulum Rig: Rotates dynamically with momentum */
+  .claw-pendulum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top center;
+    transform: rotate(0deg); /* JS physics updates this */
+    will-change: transform;
   }
 
   .claw-string {
-    width: 3px;
-    height: 35px; /* Animated when dropping down to ~150px */
-    background: linear-gradient(90deg, #eee 0%, #bbb 50%, #888 100%);
+    width: 2.5px;
+    height: 38px; /* Animates when lowering down */
+    background: repeating-linear-gradient(180deg, #ccc, #ccc 3px, #888 3px, #888 6px);
+    box-shadow: 1px 0 2px rgba(0,0,0,0.25);
     transition: height 0.65s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .claw-hub {
-    width: 22px;
-    height: 12px;
-    background: linear-gradient(180deg, #ff8da1 0%, #e65c78 100%);
-    border-radius: 6px;
-    border: 1.5px solid #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .claw-prongs {
+    width: 24px;
+    height: 14px;
+    background: linear-gradient(180deg, #ff8ca2 0%, #e65b77 100%);
+    border-radius: 7px;
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     position: relative;
-    width: 42px;
-    height: 30px;
+    z-index: 5;
   }
 
-  /* Left Prong */
+  .claw-prongs-wrapper {
+    position: relative;
+    width: 48px;
+    height: 34px;
+  }
+
+  /* Metallic Silver Prongs with Realistic 3D Shading */
+  .prong {
+    position: absolute;
+    top: -2px;
+    width: 14px;
+    height: 32px;
+    transition: transform 0.25s ease;
+  }
+
   .prong-left {
-    position: absolute;
-    top: -2px;
-    left: 4px;
-    width: 14px;
-    height: 28px;
-    border-left: 3.5px solid #99a2ad;
-    border-bottom: 3.5px solid #99a2ad;
-    border-radius: 0 0 0 14px;
+    left: 6px;
+    border-left: 4px solid #b4bcc6;
+    border-bottom: 4px solid #959fa9;
+    border-radius: 0 0 0 16px;
     transform-origin: top right;
-    transform: rotate(20deg);
-    transition: transform 0.25s ease;
+    transform: rotate(24deg);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.15));
   }
 
-  /* Right Prong */
   .prong-right {
-    position: absolute;
-    top: -2px;
-    right: 4px;
-    width: 14px;
-    height: 28px;
-    border-right: 3.5px solid #99a2ad;
-    border-bottom: 3.5px solid #99a2ad;
-    border-radius: 0 0 14px 0;
+    right: 6px;
+    border-right: 4px solid #b4bcc6;
+    border-bottom: 4px solid #959fa9;
+    border-radius: 0 0 16px 0;
     transform-origin: top left;
-    transform: rotate(-20deg);
-    transition: transform 0.25s ease;
+    transform: rotate(-24deg);
+    filter: drop-shadow(-1px 2px 2px rgba(0,0,0,0.15));
   }
 
-  /* Prongs when grasping */
+  /* Prongs Grasping */
   .claw-assembly.closed .prong-left {
-    transform: rotate(50deg) translateX(4px);
+    transform: rotate(56deg) translateX(5px);
   }
   .claw-assembly.closed .prong-right {
-    transform: rotate(-50deg) translateX(-4px);
+    transform: rotate(-56deg) translateX(-5px);
   }
 
-  /* Captured capsule hanging on claw */
+  /* Held Capsule Hanging on Claw */
   .held-capsule {
     position: absolute;
-    top: 24px;
-    width: 34px;
-    height: 34px;
+    top: 28px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    font-size: 1.15rem;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     z-index: 15;
+    border: 1.5px solid rgba(255,255,255,0.9);
   }
 
-  /* Bottom Floor & Pit */
+  /* Chamber Floor Pattern */
   .chamber-floor {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 32px;
-    background: repeating-linear-gradient(45deg, #f8a5c2, #f8a5c2 10px, #f78fb3 10px, #f78fb3 20px);
-    border-top: 2px solid #fff;
+    height: 34px;
+    background: repeating-linear-gradient(45deg, #f8a5c2, #f8a5c2 12px, #f78fb3 12px, #f78fb3 24px);
+    border-top: 2.5px solid #ffffff;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.06);
   }
 
   /* Drop Chute Box on Right */
@@ -343,12 +348,12 @@
     position: absolute;
     bottom: 12px;
     right: 14px;
-    width: 65px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.7);
+    width: 68px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.75);
     border: 2px solid #ffffff;
-    border-radius: 12px;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.1), 0 4px 8px rgba(180, 80, 120, 0.15);
+    border-radius: 14px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.12), 0 4px 10px rgba(180, 80, 120, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -358,16 +363,16 @@
 
   .chute-rim {
     position: absolute;
-    top: -6px;
-    width: 72px;
-    height: 10px;
-    background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f57591 6px, #f57591 12px);
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    top: -7px;
+    width: 76px;
+    height: 12px;
+    background: repeating-linear-gradient(45deg, #ffffff, #ffffff 7px, #f46282 7px, #f46282 14px);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   }
 
   .chute-heart {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #e63965;
     animation: heartPulse 1.8s infinite;
   }
@@ -377,34 +382,44 @@
     50% { transform: scale(1.15); }
   }
 
-  /* Capsule Pile in Chamber */
+  /* Realistic 3D Gacha Capsules on Floor with Gloss Highlights */
   .capsule-item {
     position: absolute;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 10px rgba(160, 60, 100, 0.22);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 12px rgba(150, 50, 90, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.3s ease;
     z-index: 8;
   }
 
-  .capsule-item:hover {
-    transform: scale(1.1);
+  /* Specular Highlight Sheen on every capsule */
+  .capsule-item::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 14px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    transform: rotate(-25deg);
+    pointer-events: none;
   }
 
-  .cap-1 { bottom: 24px; left: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #ffd166 45%); }
-  .cap-2 { bottom: 26px; left: 62px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #ff8da1 45%); }
-  .cap-3 { bottom: 22px; left: 102px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #b197fc 45%); }
-  .cap-4 { bottom: 25px; left: 142px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #63e6be 45%); }
-  .cap-5 { bottom: 54px; left: 45px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #ffa8a8 45%); }
-  .cap-6 { bottom: 52px; left: 88px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #ffe066 45%); }
-  .cap-7 { bottom: 50px; left: 126px; background: linear-gradient(180deg, rgba(255,255,255,0.7) 45%, #d0bfff 45%); }
+  .cap-1 { bottom: 25px; left: 24px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #ffd166 45%); }
+  .cap-2 { bottom: 28px; left: 66px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #ff8da1 45%); }
+  .cap-3 { bottom: 23px; left: 108px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #b197fc 45%); }
+  .cap-4 { bottom: 27px; left: 150px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #63e6be 45%); }
+  .cap-5 { bottom: 58px; left: 45px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #ffa8a8 45%); }
+  .cap-6 { bottom: 56px; left: 90px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #ffe066 45%); }
+  .cap-7 { bottom: 54px; left: 132px; background: linear-gradient(180deg, rgba(255,255,255,0.65) 45%, #d0bfff 45%); }
 
   /* Middle Bezel with Heart Slot */
   .middle-bezel {
@@ -412,7 +427,7 @@
     background: #ffffff;
     border-radius: 16px;
     margin: 0.5rem 0 0.4rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 0.85rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -423,17 +438,17 @@
     background: #fdf2f6;
     border: 1.5px solid #f8c1d5;
     border-radius: 8px;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.65rem;
     font-size: 0.72rem;
     font-family: 'Space Mono', monospace;
     color: #d84570;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.35rem;
   }
 
   .mini-coin-slot {
-    width: 32px;
+    width: 34px;
     height: 18px;
     background: #4a2c3a;
     border-radius: 4px;
@@ -443,138 +458,136 @@
   }
   .mini-coin-slot::after {
     content: '♥';
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     color: #ff8da1;
   }
 
-  /* Lower Controls Panel (Joystick & Big Pink Button) */
+  /* Controls Panel (Real Analog Joystick + Spring Grab Button) */
   .controls-panel {
     width: 100%;
     background: #ffffff;
-    border-radius: 28px;
-    padding: 0.6rem 0.8rem;
-    box-shadow: 0 6px 18px rgba(180, 80, 120, 0.2);
+    border-radius: 30px;
+    padding: 0.65rem 0.9rem;
+    box-shadow: 0 6px 20px rgba(180, 80, 120, 0.22);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  /* Joystick / D-Pad */
-  .joystick-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-
-  .dpad-container {
+  /* Real 3D Analog Joystick with 3D Chrome Shaft & Draggable Knob */
+  .joystick-pad {
     position: relative;
-    width: 76px;
-    height: 76px;
-    background: #fdf2f6;
+    width: 82px;
+    height: 82px;
+    background: radial-gradient(circle at 50% 50%, #fdf2f6 0%, #f7d5e2 100%);
     border-radius: 50%;
-    border: 2px solid #ffd0df;
+    border: 2px solid #ffccd9;
+    box-shadow: inset 0 3px 8px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.06);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    touch-action: none;
   }
 
-  .arrow-btn {
+  .pad-arrow {
     position: absolute;
-    width: 22px;
-    height: 22px;
-    background: #ff8da1;
-    border: none;
-    border-radius: 6px;
+    width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(180, 60, 100, 0.25);
-    transition: all 0.15s ease;
+    color: #f4809f;
+    font-size: 0.8rem;
+    pointer-events: none;
   }
+  .arrow-u { top: 4px; }
+  .arrow-d { bottom: 4px; }
+  .arrow-l { left: 4px; }
+  .arrow-r { right: 4px; }
 
-  .arrow-btn:active {
-    transform: scale(0.9);
-    background: #f43f5e;
-  }
-
-  .arrow-btn svg {
-    width: 12px;
-    height: 12px;
-    fill: #ffffff;
-  }
-
-  .arrow-left { left: 4px; }
-  .arrow-right { right: 4px; }
-
-  .joystick-ball {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #ffccd8 0%, #ff8da1 60%, #e65c78 100%);
-    box-shadow: 0 4px 8px rgba(180, 60, 100, 0.35);
+  /* Interactive Joystick Knob with Chrome Shaft */
+  .joystick-base {
+    position: relative;
+    width: 44px;
+    height: 44px;
     cursor: grab;
-    transition: transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .joystick-base:active {
+    cursor: grabbing;
   }
 
-  /* Instruction Text */
+  .joystick-knob {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffccd8 0%, #ff829b 55%, #df4d6e 100%);
+    box-shadow: 0 5px 12px rgba(180, 50, 90, 0.45), inset 0 2px 4px rgba(255,255,255,0.7);
+    border: 2px solid #ffffff;
+    transform: translate(0px, 0px);
+    transition: transform 0.08s ease-out;
+    will-change: transform;
+  }
+
+  /* Instructions */
   .instruction-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #8c5a6f;
-    line-height: 1.2;
+    line-height: 1.25;
     text-align: center;
-    max-width: 125px;
+    max-width: 130px;
   }
 
-  /* Big Round Pink "GRAB" Button */
+  /* Big 3D Spring-loaded GRAB Button */
   .grab-btn {
-    width: 72px;
-    height: 72px;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #ff8da1 0%, #f43f5e 65%, #c81e48 100%);
-    border: 3px solid #ffffff;
+    background: radial-gradient(circle at 35% 30%, #ff8da1 0%, #f43f5e 60%, #bd1a42 100%);
+    border: 3.5px solid #ffffff;
     box-shadow: 
-      0 6px 16px rgba(220, 40, 80, 0.45),
-      inset 0 3px 6px rgba(255, 255, 255, 0.65),
-      inset 0 -4px 8px rgba(150, 20, 50, 0.3);
+      0 8px 18px rgba(220, 35, 75, 0.5),
+      inset 0 3px 6px rgba(255, 255, 255, 0.75),
+      inset 0 -5px 10px rgba(140, 15, 45, 0.4);
     color: #ffffff;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     outline: none;
   }
 
   .grab-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 22px rgba(220, 40, 80, 0.6);
+    box-shadow: 0 10px 24px rgba(220, 35, 75, 0.65);
   }
 
   .grab-btn:active, .grab-btn.pressed {
-    transform: scale(0.94) translateY(2px);
-    box-shadow: 0 2px 6px rgba(220, 40, 80, 0.5);
+    transform: scale(0.93) translateY(4px);
+    box-shadow: 0 2px 6px rgba(220, 35, 75, 0.5);
   }
 
   .grab-btn.disabled {
     pointer-events: none;
-    filter: grayscale(0.3) opacity(0.7);
+    filter: grayscale(0.25) opacity(0.7);
   }
 
-  /* Bottom Replay Navigation */
+  /* Replay Pill */
   .replay-pill {
     margin-top: 0.45rem;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 200, 220, 0.9);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 200, 220, 0.95);
     border-radius: 9999px;
-    padding: 0.35rem 0.95rem;
+    padding: 0.35rem 1rem;
     font-size: 0.72rem;
     font-family: 'Space Mono', monospace;
     color: #a8557a;
@@ -596,9 +609,9 @@
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(45, 20, 35, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(45, 18, 32, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -620,14 +633,14 @@
     max-width: 440px;
     background: #ffffff;
     border-radius: 32px;
-    border: 3px solid #ffccd8;
-    box-shadow: 0 25px 60px rgba(140, 40, 80, 0.35);
-    padding: 2rem 1.6rem 1.6rem;
+    border: 3.5px solid #ffccd9;
+    box-shadow: 0 25px 60px rgba(140, 40, 80, 0.38);
+    padding: 2.1rem 1.6rem 1.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.1rem;
+    gap: 1.15rem;
     transform: scale(0.8) translateY(20px);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
@@ -637,16 +650,17 @@
   }
 
   .prize-badge-icon {
-    width: 64px;
-    height: 64px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     background: linear-gradient(135deg, #ff8da1, #f43f5e);
     box-shadow: 0 8px 24px rgba(244, 63, 94, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin-top: -1.4rem;
+    font-size: 2.1rem;
+    margin-top: -1.6rem;
+    border: 3px solid #fff;
   }
 
   .prize-subtitle {
@@ -670,7 +684,7 @@
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1rem, 2.8vw, 1.18rem);
     line-height: 1.65;
-    color: #2b1f24;
+    color: #2b1d24;
     font-weight: 600;
   }
 
@@ -683,13 +697,13 @@
 
   .play-again-btn {
     width: 100%;
-    padding: 0.85rem 1.4rem;
+    padding: 0.88rem 1.4rem;
     border-radius: 9999px;
     background: linear-gradient(135deg, #ff8da1 0%, #f43f5e 100%);
     border: none;
     color: #fff;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.94rem;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(244, 63, 94, 0.35);
@@ -717,38 +731,11 @@
     background: #fdf5f8;
     color: #e63965;
   }
-
-  @media (max-height: 700px) {
-    .glass-chamber {
-      min-height: 200px;
-    }
-    .claw-machine-card {
-      height: 98vh;
-    }
-    .controls-panel {
-      padding: 0.4rem 0.6rem;
-    }
-    .dpad-container {
-      width: 65px;
-      height: 65px;
-    }
-    .grab-btn {
-      width: 62px;
-      height: 62px;
-      font-size: 0.8rem;
-    }
-  }
 </style>
 </head>
 <body>
 
 <div class="game-viewport">
-  <!-- Soft Floating Hearts in Background -->
-  <span class="bg-float-heart h1">💖</span>
-  <span class="bg-float-heart h2">🌸</span>
-  <span class="bg-float-heart h3">🎀</span>
-  <span class="bg-float-heart h4">💌</span>
-
   <div class="claw-machine-card">
     <!-- Top Banner -->
     <header class="title-banner">
@@ -777,43 +764,49 @@
 
       <!-- Glass Chamber -->
       <div class="glass-chamber" id="glassChamber">
+        <div class="glass-reflection"></div>
+
         <!-- Top Rail -->
         <div class="claw-rail">
           <div class="claw-rail-end-l"></div>
           <div class="claw-rail-end-r"></div>
         </div>
 
-        <!-- Claw Assembly -->
+        <!-- Claw Assembly with Pendulum Swing -->
         <div class="claw-assembly" id="clawAssembly">
           <div class="claw-carriage">
             <span class="carriage-heart">♥</span>
           </div>
-          <div class="claw-string" id="clawString"></div>
-          <div class="claw-hub"></div>
-          <div class="claw-prongs">
-            <div class="prong-left"></div>
-            <div class="prong-right"></div>
+
+          <!-- Pendulum with Physics Sway -->
+          <div class="claw-pendulum" id="clawPendulum">
+            <div class="claw-string" id="clawString"></div>
+            <div class="claw-hub"></div>
+            <div class="claw-prongs-wrapper">
+              <div class="prong prong-left"></div>
+              <div class="prong prong-right"></div>
+            </div>
+            <!-- Held Prize Capsule -->
+            <div class="held-capsule" id="heldCapsule">💌</div>
           </div>
-          <!-- Captured Capsule -->
-          <div class="held-capsule" id="heldCapsule">💌</div>
         </div>
 
-        <!-- Prize Drop Chute on Right -->
+        <!-- Drop Chute on Right -->
         <div class="prize-chute-box">
           <div class="chute-rim"></div>
           <span class="chute-heart">♥</span>
         </div>
 
-        <!-- Capsules on Floor -->
-        <div class="capsule-item cap-1" id="cap1">💌</div>
-        <div class="capsule-item cap-2" id="cap2">🎁</div>
-        <div class="capsule-item cap-3" id="cap3">🌸</div>
-        <div class="capsule-item cap-4" id="cap4">💖</div>
-        <div class="capsule-item cap-5" id="cap5">🎀</div>
-        <div class="capsule-item cap-6" id="cap6">🧸</div>
-        <div class="capsule-item cap-7" id="cap7">🍰</div>
+        <!-- Real Target Capsules on Floor -->
+        <div class="capsule-item cap-1" id="c1" data-x="18" data-icon="💌">💌</div>
+        <div class="capsule-item cap-2" id="c2" data-x="30" data-icon="🎁">🎁</div>
+        <div class="capsule-item cap-3" id="c3" data-x="42" data-icon="🌸">🌸</div>
+        <div class="capsule-item cap-4" id="c4" data-x="54" data-icon="💖">💖</div>
+        <div class="capsule-item cap-5" id="c5" data-x="25" data-icon="🎀">🎀</div>
+        <div class="capsule-item cap-6" id="c6" data-x="38" data-icon="🧸">🧸</div>
+        <div class="capsule-item cap-7" id="c7" data-x="50" data-icon="🍰">🍰</div>
 
-        <!-- Floor -->
+        <!-- Chamber Floor -->
         <div class="chamber-floor"></div>
       </div>
 
@@ -821,23 +814,21 @@
       <div class="middle-bezel">
         <div class="prize-slot-display">
           <span>COINS</span>
-          <span style="color:#2b1f24;font-weight:700;">∞ FREE</span>
+          <span style="color:#2b1d24;font-weight:700;">∞ FREE PLAY</span>
         </div>
         <div class="mini-coin-slot"></div>
       </div>
 
-      <!-- Lower Controls Panel -->
+      <!-- Controls Panel (Analog Joystick & Big Pink Grab Button) -->
       <div class="controls-panel">
-        <!-- D-Pad Left / Right -->
-        <div class="joystick-wrap">
-          <div class="dpad-container" id="dpadContainer">
-            <button class="arrow-btn arrow-left" id="btnLeft" aria-label="Move Left">
-              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <div class="joystick-ball" id="joystickBall"></div>
-            <button class="arrow-btn arrow-right" id="btnRight" aria-label="Move Right">
-              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
+        <!-- Interactive 3D Joystick -->
+        <div class="joystick-pad" id="joystickPad">
+          <span class="pad-arrow arrow-u">▲</span>
+          <span class="pad-arrow arrow-d">▼</span>
+          <span class="pad-arrow arrow-l">◀</span>
+          <span class="pad-arrow arrow-r">▶</span>
+          <div class="joystick-base" id="joystickBase">
+            <div class="joystick-knob" id="joystickKnob"></div>
           </div>
         </div>
 
@@ -846,7 +837,7 @@
           Move the joystick, then press Grab.
         </div>
 
-        <!-- Big Grab Button -->
+        <!-- Big Spring Grab Button -->
         <button class="grab-btn" id="grabBtn" aria-label="Grab Prize">
           <span>GRAB</span>
         </button>
@@ -889,8 +880,6 @@
     "Happy birthday, the most beautiful feeling in the world I know! Life may be the same for everyone, but every moment I have with you is different, magical. Hold my hand like this for the rest of your life. Happy birthday my dear beautifull girl! ❤️"
   ];
 
-  const PRIZE_ICONS = ["💌", "🎁", "🌸", "💖", "🎀", "🧸", "🍰"];
-
   let lastIndex = -1;
   function getRandomMessage() {
     let newIndex;
@@ -898,55 +887,63 @@
       newIndex = Math.floor(Math.random() * MESSAGES.length);
     } while (newIndex === lastIndex && MESSAGES.length > 1);
     lastIndex = newIndex;
-    return {
-      text: MESSAGES[newIndex],
-      icon: PRIZE_ICONS[newIndex % PRIZE_ICONS.length]
-    };
+    return MESSAGES[newIndex];
   }
 
-  // Synthesized Web Audio API Sound Effects
+  // Realistic Sound Effects (Web Audio API)
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   let audioCtx = null;
-
   function initAudio() {
     if (!audioCtx) audioCtx = new AudioContext();
     if (audioCtx.state === 'suspended') audioCtx.resume();
   }
 
-  function playTickSound() {
+  // Mechanical motor whirring sound while moving
+  let motorOsc = null;
+  let motorGain = null;
+  function startMotorSound() {
+    initAudio();
+    if (!audioCtx || motorOsc) return;
+    motorOsc = audioCtx.createOscillator();
+    motorGain = audioCtx.createGain();
+    motorOsc.type = 'sawtooth';
+    motorOsc.frequency.setValueAtTime(110, audioCtx.currentTime);
+    motorGain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+    motorOsc.connect(motorGain);
+    motorGain.connect(audioCtx.destination);
+    motorOsc.start();
+  }
+  function stopMotorSound() {
+    if (motorGain && audioCtx) {
+      motorGain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.08);
+      setTimeout(() => {
+        if (motorOsc) { motorOsc.stop(); motorOsc.disconnect(); motorOsc = null; }
+      }, 90);
+    }
+  }
+
+  // Metallic ratchet click when descending / grabbing
+  function playClankSound() {
     initAudio();
     if (!audioCtx) return;
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(480, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(450, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
     osc.connect(gain);
     gain.connect(audioCtx.destination);
     osc.start();
-    osc.stop(audioCtx.currentTime + 0.05);
+    osc.stop(audioCtx.currentTime + 0.08);
   }
 
-  function playMotorSound() {
-    initAudio();
-    if (!audioCtx) return;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(140, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + 0.5);
-  }
-
+  // Celebration Fanfare
   function playCelebrationFanfare() {
     initAudio();
     if (!audioCtx) return;
-    const notes = [587.33, 659.25, 783.99, 1046.50]; // D5, E5, G5, C6
+    const notes = [587.33, 659.25, 783.99, 1046.50];
     notes.forEach((freq, i) => {
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
@@ -963,7 +960,7 @@
     });
   }
 
-  // Confetti Explosion
+  // Confetti
   function triggerConfetti() {
     if (typeof confetti === 'function') {
       confetti({
@@ -972,33 +969,17 @@
         origin: { y: 0.6 },
         colors: ['#ff8da1', '#f43f5e', '#ffd166', '#b197fc', '#ffffff']
       });
-      setTimeout(() => {
-        confetti({
-          particleCount: 45,
-          angle: 60,
-          spread: 60,
-          origin: { x: 0.15, y: 0.65 },
-          colors: ['#ff8da1', '#ffccd8', '#ffd166']
-        });
-        confetti({
-          particleCount: 45,
-          angle: 120,
-          spread: 60,
-          origin: { x: 0.85, y: 0.65 },
-          colors: ['#b197fc', '#d0bfff', '#ffffff']
-        });
-      }, 180);
     }
   }
 
-  // Claw Machine State & Movement Logic
+  // ---------------- Realistic Physics Simulation ----------------
   const clawAssembly = document.getElementById('clawAssembly');
+  const clawPendulum = document.getElementById('clawPendulum');
   const clawString = document.getElementById('clawString');
   const heldCapsule = document.getElementById('heldCapsule');
-  const btnLeft = document.getElementById('btnLeft');
-  const btnRight = document.getElementById('btnRight');
   const grabBtn = document.getElementById('grabBtn');
-  const joystickBall = document.getElementById('joystickBall');
+  const joystickPad = document.getElementById('joystickPad');
+  const joystickKnob = document.getElementById('joystickKnob');
   const modalOverlay = document.getElementById('modalOverlay');
   const prizeMessageText = document.getElementById('prizeMessageText');
   const prizeBadgeIcon = document.getElementById('prizeBadgeIcon');
@@ -1006,116 +987,208 @@
   const closeModalBtn = document.getElementById('closeModalBtn');
   const replayPill = document.getElementById('replayPill');
 
-  let clawPosPercent = 42; // percentage across chamber
-  const MIN_POS = 16;
-  const MAX_POS = 68;
-  const CHUTE_POS = 82;
+  // Capsule elements sitting on floor
+  const capsules = Array.from(document.querySelectorAll('.capsule-item'));
+
+  // Physics state
+  let trolleyX = 42; // Percentage along chamber (15% to 68%)
+  let targetVelocityX = 0;
+  let currentVelocityX = 0;
+  let swingAngle = 0; // Current pendulum sway angle in degrees
+  let swingAngularVel = 0;
+
+  const MIN_X = 14;
+  const MAX_X = 68;
+  const CHUTE_X = 84;
 
   let isOperating = false;
 
-  function updateClawPosition() {
-    clawAssembly.style.left = clawPosPercent + '%';
+  // Real-time animation loop for smooth crane inertia and swinging cable
+  function physicsLoop() {
+    if (!isOperating) {
+      // Smoothly approach target velocity
+      currentVelocityX += (targetVelocityX - currentVelocityX) * 0.2;
+      trolleyX += currentVelocityX;
+
+      // Enforce bounds
+      if (trolleyX < MIN_X) { trolleyX = MIN_X; currentVelocityX = 0; }
+      if (trolleyX > MAX_X) { trolleyX = MAX_X; currentVelocityX = 0; }
+
+      clawAssembly.style.left = trolleyX + '%';
+
+      // Pendulum swinging physics: acceleration creates tilt
+      const acceleration = (targetVelocityX - currentVelocityX);
+      const targetSwing = -currentVelocityX * 22; // Swing proportional to speed
+      swingAngularVel += (targetSwing - swingAngle) * 0.12;
+      swingAngularVel *= 0.85; // Damping
+      swingAngle += swingAngularVel;
+
+      clawPendulum.style.transform = `rotate(${swingAngle}deg)`;
+    }
+    requestAnimationFrame(physicsLoop);
+  }
+  requestAnimationFrame(physicsLoop);
+
+  // Analog Joystick Pointer Dragging
+  let isDraggingStick = false;
+  let stickOrigin = { x: 0, y: 0 };
+
+  function handleStickStart(clientX, clientY) {
+    if (isOperating) return;
+    isDraggingStick = true;
+    const rect = joystickPad.getBoundingClientRect();
+    stickOrigin = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+    handleStickMove(clientX, clientY);
   }
 
-  function moveLeft() {
-    if (isOperating) return;
-    clawPosPercent = Math.max(MIN_POS, clawPosPercent - 7);
-    updateClawPosition();
-    joystickBall.style.transform = 'translate(-6px, 0)';
-    setTimeout(() => joystickBall.style.transform = 'translate(0, 0)', 150);
-    playTickSound();
+  function handleStickMove(clientX, clientY) {
+    if (!isDraggingStick || isOperating) return;
+    let dx = clientX - stickOrigin.x;
+    let dy = clientY - stickOrigin.y;
+    const dist = Math.hypot(dx, dy);
+    const maxRadius = 24;
+
+    if (dist > maxRadius) {
+      dx = (dx / dist) * maxRadius;
+      dy = (dy / dist) * maxRadius;
+    }
+
+    joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
+
+    // Convert horizontal deflection into analog velocity
+    const normalizedX = dx / maxRadius;
+    if (Math.abs(normalizedX) > 0.15) {
+      targetVelocityX = normalizedX * 0.85;
+      startMotorSound();
+    } else {
+      targetVelocityX = 0;
+      stopMotorSound();
+    }
   }
 
-  function moveRight() {
-    if (isOperating) return;
-    clawPosPercent = Math.min(MAX_POS, clawPosPercent + 7);
-    updateClawPosition();
-    joystickBall.style.transform = 'translate(6px, 0)';
-    setTimeout(() => joystickBall.style.transform = 'translate(0, 0)', 150);
-    playTickSound();
+  function handleStickEnd() {
+    isDraggingStick = false;
+    joystickKnob.style.transform = 'translate(0px, 0px)';
+    targetVelocityX = 0;
+    stopMotorSound();
   }
 
-  btnLeft.addEventListener('click', moveLeft);
-  btnRight.addEventListener('click', moveRight);
-
-  // Dragging Joystick support
-  let isDraggingJoystick = false;
-  let startX = 0;
-  joystickBall.addEventListener('pointerdown', (e) => {
-    if (isOperating) return;
-    isDraggingJoystick = true;
-    startX = e.clientX;
-    joystickBall.setPointerCapture(e.pointerId);
+  joystickPad.addEventListener('pointerdown', (e) => {
+    joystickPad.setPointerCapture(e.pointerId);
+    handleStickStart(e.clientX, e.clientY);
   });
   window.addEventListener('pointermove', (e) => {
-    if (!isDraggingJoystick || isOperating) return;
-    const dx = e.clientX - startX;
-    if (dx < -12) {
-      moveLeft();
-      startX = e.clientX;
-    } else if (dx > 12) {
-      moveRight();
-      startX = e.clientX;
+    handleStickMove(e.clientX, e.clientY);
+  });
+  window.addEventListener('pointerup', handleStickEnd);
+  window.addEventListener('pointercancel', handleStickEnd);
+
+  // Keyboard controls
+  window.addEventListener('keydown', (e) => {
+    if (isOperating || modalOverlay.classList.contains('show')) return;
+    if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+      targetVelocityX = -0.85;
+      startMotorSound();
+    } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+      targetVelocityX = 0.85;
+      startMotorSound();
+    } else if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      executeGrab();
     }
   });
-  window.addEventListener('pointerup', () => {
-    isDraggingJoystick = false;
-    joystickBall.style.transform = 'translate(0, 0)';
+
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'a' || e.key === 'A' || e.key === 'd' || e.key === 'D') {
+      targetVelocityX = 0;
+      stopMotorSound();
+    }
   });
 
-  // Execute Grab Routine
+  // ---------------- Realistic Grab Execution ----------------
   function executeGrab() {
     if (isOperating) return;
     isOperating = true;
+    handleStickEnd();
     grabBtn.classList.add('disabled', 'pressed');
-    playMotorSound();
 
-    const selectedPrize = getRandomMessage();
+    // Settle pendulum to center before lowering
+    clawPendulum.style.transition = 'transform 0.3s ease-out';
+    clawPendulum.style.transform = 'rotate(0deg)';
 
-    // 1. Drop claw down
-    clawString.style.height = '145px';
+    // Step 1: Lower the claw down over the exact floor position
+    playClankSound();
+    clawString.style.height = '148px';
 
     setTimeout(() => {
-      // 2. Close claw
+      // Step 2: Claw closes prongs
       clawAssembly.classList.add('closed');
-      heldCapsule.textContent = selectedPrize.icon;
+      playClankSound();
+
+      // Find closest capsule to trolleyX
+      let closestCap = null;
+      let minDistance = 999;
+      capsules.forEach(cap => {
+        if (cap.style.display !== 'none') {
+          const capX = parseFloat(cap.dataset.x);
+          const dist = Math.abs(trolleyX - capX);
+          if (dist < minDistance) {
+            minDistance = dist;
+            closestCap = cap;
+          }
+        }
+      });
+
+      // Grab the prize
+      const prizeIcon = closestCap ? closestCap.dataset.icon : '💌';
+      if (closestCap) {
+        closestCap.style.opacity = '0';
+      }
+
+      heldCapsule.textContent = prizeIcon;
       heldCapsule.style.display = 'flex';
-      playTickSound();
 
       setTimeout(() => {
-        // 3. Retract claw up
-        clawString.style.height = '35px';
+        // Step 3: Winch cable reels back up to ceiling
+        clawString.style.height = '38px';
+        playClankSound();
 
         setTimeout(() => {
-          // 4. Move claw horizontally to drop chute
-          clawAssembly.style.transition = 'left 0.75s ease-in-out';
-          clawAssembly.style.left = CHUTE_POS + '%';
+          // Step 4: Crane trolley travels along the rail over to the drop chute
+          startMotorSound();
+          clawAssembly.style.transition = 'left 0.85s cubic-bezier(0.25, 1, 0.5, 1)';
+          clawAssembly.style.left = CHUTE_X + '%';
 
           setTimeout(() => {
-            // 5. Open claw over chute & drop
+            stopMotorSound();
+            // Step 5: Claw prongs open over chute to release prize
             clawAssembly.classList.remove('closed');
             heldCapsule.style.display = 'none';
+            playClankSound();
 
-            // 6. Confetti & Reveal Modal
+            // Step 6: Capsule drops down into chute, celebration triggers!
             setTimeout(() => {
-              prizeMessageText.textContent = selectedPrize.text;
-              prizeBadgeIcon.textContent = selectedPrize.icon;
+              const msg = getRandomMessage();
+              prizeMessageText.textContent = msg;
+              prizeBadgeIcon.textContent = prizeIcon;
               modalOverlay.classList.add('show');
               playCelebrationFanfare();
               triggerConfetti();
 
-              // Reset claw position
+              // Reset claw and restore capsules
               setTimeout(() => {
-                clawPosPercent = 42;
-                clawAssembly.style.left = clawPosPercent + '%';
-                clawAssembly.style.transition = 'left 0.15s ease-out';
+                trolleyX = 42;
+                clawAssembly.style.left = trolleyX + '%';
+                clawAssembly.style.transition = 'none';
+                clawPendulum.style.transition = 'none';
                 grabBtn.classList.remove('disabled', 'pressed');
+                if (closestCap) closestCap.style.opacity = '1';
                 isOperating = false;
               }, 600);
             }, 350);
-          }, 850);
+          }, 950);
         }, 700);
-      }, 350);
+      }, 400);
     }, 700);
   }
 
@@ -1123,9 +1196,7 @@
 
   playAgainBtn.addEventListener('click', () => {
     modalOverlay.classList.remove('show');
-    setTimeout(() => {
-      executeGrab();
-    }, 350);
+    setTimeout(executeGrab, 350);
   });
 
   closeModalBtn.addEventListener('click', () => {
@@ -1133,30 +1204,10 @@
   });
 
   modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-      modalOverlay.classList.remove('show');
-    }
+    if (e.target === modalOverlay) modalOverlay.classList.remove('show');
   });
 
-  // Keyboard navigation
-  window.addEventListener('keydown', (e) => {
-    if (modalOverlay.classList.contains('show')) {
-      if (e.key === 'Escape') modalOverlay.classList.remove('show');
-      return;
-    }
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      moveLeft();
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      moveRight();
-    } else if (e.key === ' ' || e.key === 'Enter') {
-      e.preventDefault();
-      executeGrab();
-    }
-  });
-
-  // Replay to Beginning / Scroll to top
+  // Replay from Beginning navigation
   function scrollToTop() {
     try {
       const parentContainer = window.parent.document.getElementById('main-scroll-container');
