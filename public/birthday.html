@@ -1031,6 +1031,36 @@ function computeParts() {
     outgoing.classList.remove('is-active');
     showingA = !showingA;
   }, 3200);
+
+  // forward wheel and touch events to parent container so scrolling moves to next section smoothly
+  window.addEventListener('wheel', (e) => {
+    try {
+      const parentContainer = window.parent.document.getElementById('main-scroll-container');
+      if (parentContainer) {
+        parentContainer.scrollBy({ top: e.deltaY, behavior: 'auto' });
+      }
+    } catch (err) {}
+  }, { passive: true });
+
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(diffY) > 55 && diffY > 0) {
+      try {
+        const parentContainer = window.parent.document.getElementById('main-scroll-container');
+        const target = window.parent.document.getElementById('section-video');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        } else if (parentContainer) {
+          parentContainer.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+      } catch (err) {}
+    }
+  }, { passive: true });
 </script>
 
 
