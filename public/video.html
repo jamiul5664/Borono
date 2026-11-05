@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Happy Birthday Borno - Special Video</title>
+<title>Happy Birthday Borno - Birthday Video</title>
 <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * {
     margin: 0;
@@ -20,229 +20,107 @@
   html, body {
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    background: #030306;
-    color: #fff;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ebeae4;
     user-select: none;
     -webkit-user-select: none;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  .video-section {
+  /* Full viewport container - completely edge to edge */
+  .video-viewport {
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 1rem 2.5rem;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-  }
-
-  /* Ambient glowing video backdrop */
-  .ambient-backdrop {
-    position: absolute;
-    inset: -20%;
-    width: 140%;
-    height: 140%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-    opacity: 0.5;
-    filter: blur(60px) saturate(1.8) brightness(0.65);
-    transform: translateZ(0);
-  }
-
-  .ambient-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Dark vignette overlay over ambient glow */
-  .ambient-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(3, 3, 6, 0.4) 0%, rgba(3, 3, 6, 0.92) 85%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  /* Floating sparkles / particles */
-  .sparkle-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  /* Main wrapper */
-  .content-wrap {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1040px;
-    height: 100%;
-    gap: 1rem;
-  }
-
-  /* Header */
-  .video-header {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.3rem 0.85rem;
-    border-radius: 9999px;
-    background: rgba(244, 114, 182, 0.12);
-    border: 1px solid rgba(244, 114, 182, 0.35);
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #f472b6;
-    box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);
-  }
-
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #f472b6;
-    box-shadow: 0 0 8px #f472b6;
-    animation: pulse 1.8s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  .title {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(1.4rem, 3.8vw, 2.5rem);
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    background: linear-gradient(135deg, #ffffff 30%, #f472b6 75%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 35px rgba(244, 114, 182, 0.3);
-  }
-
-  .subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: clamp(0.75rem, 1.6vw, 0.9rem);
-    color: rgba(255, 255, 255, 0.65);
-    letter-spacing: 0.02em;
-  }
-
-  /* Video player container */
-  .player-container {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    max-height: 65vh;
-    aspect-ratio: 16 / 9;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 
-      0 20px 50px -10px rgba(0, 0, 0, 0.9),
-      0 0 30px rgba(244, 114, 182, 0.2),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    background: #ebeae4;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  /* Main video fills 100% of space, no borders, no cards */
   .main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background: #000;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    object-fit: cover;
+    object-position: center center;
     display: block;
     cursor: pointer;
+    border: none;
+    outline: none;
   }
 
-  /* Controls overlay */
-  .controls-overlay {
+  /* Center flash play/pause badge on click */
+  .center-play-badge {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.25rem 1.25rem 0.9rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.4) 65%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 5;
-  }
-
-  .player-container:hover .controls-overlay,
-  .player-container.show-controls .controls-overlay {
-    opacity: 1;
-  }
-
-  /* Seek bar */
-  .seek-bar-wrap {
-    width: 100%;
-    position: relative;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .seek-bar-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #ec4899, #f472b6);
-    border-radius: 4px;
-    position: relative;
-    box-shadow: 0 0 10px rgba(244, 114, 182, 0.7);
-  }
-
-  .seek-bar-handle {
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-  }
-
-  /* Controls row */
-  .controls-row {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.65);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 
-  .controls-left, .controls-right {
+  .center-play-badge.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .center-play-badge svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+  }
+
+  /* Floating sleek control bar at bottom */
+  .floating-controls {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    z-index: 30;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 12px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(18, 18, 22, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+  }
+
+  /* Show controls on hover or when playing state changes */
+  .video-viewport:hover .floating-controls,
+  .floating-controls.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
   }
 
   .ctrl-btn {
@@ -256,230 +134,204 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     transition: all 0.2s ease;
   }
 
   .ctrl-btn:hover {
-    background: rgba(244, 114, 182, 0.25);
-    border-color: rgba(244, 114, 182, 0.5);
-    transform: scale(1.08);
+    background: rgba(244, 114, 182, 0.35);
+    transform: scale(1.1);
   }
 
   .ctrl-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
+    width: 17px;
+    height: 17px;
+    fill: #fff;
   }
 
-  .time-display {
+  /* Seek bar inside floating controls */
+  .seek-bar-track {
+    width: 110px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .seek-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ec4899, #f472b6);
+    border-radius: 9999px;
+  }
+
+  .time-text {
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.75);
-    letter-spacing: 0.05em;
-  }
-
-  /* Big Play/Pause indicator on click */
-  .center-play-badge {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    opacity: 0;
-    transform: scale(0.7);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 4;
-  }
-
-  .center-play-badge.show {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .center-play-badge svg {
-    width: 28px;
-    height: 28px;
-    fill: #fff;
-    margin-left: 2px;
-  }
-
-  /* Bottom next prompt button */
-  .next-prompt {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.55rem 1.3rem;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
     color: rgba(255, 255, 255, 0.85);
-    font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.05em;
+    min-width: 68px;
+    text-align: center;
   }
 
-  .next-prompt:hover {
-    background: rgba(244, 114, 182, 0.2);
+  /* Scroll next indicator pill */
+  .scroll-next-pill {
+    position: absolute;
+    bottom: 24px;
+    right: 28px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(18, 18, 22, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+    opacity: 0.75;
+  }
+
+  .scroll-next-pill:hover {
+    opacity: 1;
+    background: rgba(244, 114, 182, 0.25);
     border-color: rgba(244, 114, 182, 0.5);
     color: #fff;
     transform: translateY(2px);
-    box-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
   }
 
-  .next-prompt svg {
+  .scroll-next-pill svg {
     width: 14px;
     height: 14px;
     fill: currentColor;
-    animation: bounceDown 1.6s infinite ease-in-out;
+    animation: bounceDown 1.5s infinite ease-in-out;
   }
 
   @keyframes bounceDown {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(4px); }
+    50% { transform: translateY(3px); }
   }
 
   @media (max-width: 640px) {
-    .video-section {
-      padding: 1rem 0.75rem 1.5rem;
+    .floating-controls {
+      bottom: 16px;
+      padding: 6px 12px;
+      gap: 8px;
     }
-    .player-container {
-      max-height: 52vh;
-      border-radius: 14px;
+    .seek-bar-track {
+      width: 70px;
     }
-    .controls-overlay {
-      padding: 0.75rem 0.75rem 0.5rem;
-    }
-    .ctrl-btn {
-      width: 30px;
-      height: 30px;
-    }
-    .ctrl-btn svg {
-      width: 13px;
-      height: 13px;
-    }
-    .time-display {
+    .time-text {
       font-size: 0.68rem;
+      min-width: 58px;
+    }
+    .scroll-next-pill {
+      bottom: 74px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+    .scroll-next-pill:hover {
+      transform: translateX(50%) translateY(2px);
     }
   }
 </style>
 </head>
 <body>
 
-<div class="video-section">
-  <!-- Ambient backdrop mirroring the video -->
-  <div class="ambient-backdrop">
-    <video id="ambientVideo" class="ambient-video" src="/video/birthday-video.mp4" autoplay loop muted playsinline></video>
+<div class="video-viewport" id="videoViewport">
+  <!-- 100% Full-Screen Video (No borders, edge-to-edge) -->
+  <video 
+    id="mainVideo" 
+    class="main-video" 
+    src="/video/birthday-video.mp4" 
+    autoplay 
+    loop 
+    muted 
+    playsinline
+  ></video>
+
+  <!-- Big Play/Pause Center Flash Indicator -->
+  <div class="center-play-badge" id="centerBadge">
+    <svg id="badgePlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="badgePauseIcon" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
   </div>
-  <div class="ambient-overlay"></div>
 
-  <!-- Sparkle Particle Canvas -->
-  <canvas id="sparkleCanvas" class="sparkle-canvas"></canvas>
-
-  <!-- Content Wrap -->
-  <div class="content-wrap">
-    <!-- Header -->
-    <header class="video-header">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        <span>A Special Birthday Surprise</span>
-      </div>
-      <h1 class="title">Happy Birthday, Borno 🎬✨</h1>
-      <p class="subtitle">Every moment, every smile — celebrating you</p>
-    </header>
-
-    <!-- Main Video Frame -->
-    <div class="player-container" id="playerContainer">
-      <video id="mainVideo" class="main-video" src="/video/birthday-video.mp4" autoplay loop muted playsinline></video>
-
-      <!-- Center Play/Pause Flash Badge -->
-      <div class="center-play-badge" id="centerBadge">
-        <svg id="badgePlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg id="badgePauseIcon" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </div>
-
-      <!-- Controls Overlay -->
-      <div class="controls-overlay" id="controlsOverlay">
-        <div class="seek-bar-wrap" id="seekWrap">
-          <div class="seek-bar-fill" id="seekFill">
-            <span class="seek-bar-handle"></span>
-          </div>
-        </div>
-
-        <div class="controls-row">
-          <div class="controls-left">
-            <button class="ctrl-btn" id="playBtn" aria-label="Play or Pause">
-              <svg id="playIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-            <button class="ctrl-btn" id="replayBtn" aria-label="Replay">
-              <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-            </button>
-            <span class="time-display" id="timeDisplay">0:00 / 0:05</span>
-          </div>
-
-          <div class="controls-right">
-            <button class="ctrl-btn" id="muteBtn" aria-label="Mute or Unmute">
-              <svg id="muteIcon" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-            </button>
-            <button class="ctrl-btn" id="fsBtn" aria-label="Fullscreen">
-              <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
+  <!-- Floating Sleek Controls -->
+  <div class="floating-controls" id="floatingControls">
+    <button class="ctrl-btn" id="playBtn" aria-label="Play/Pause">
+      <svg id="playIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <button class="ctrl-btn" id="replayBtn" aria-label="Replay">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+    </button>
+    
+    <div class="seek-bar-track" id="seekTrack">
+      <div class="seek-bar-fill" id="seekFill"></div>
     </div>
+    
+    <span class="time-text" id="timeText">0:00 / 0:05</span>
+    
+    <button class="ctrl-btn" id="muteBtn" aria-label="Mute/Unmute">
+      <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+    </button>
 
-    <!-- Bottom prompt to scroll down to Scrapbook -->
-    <button class="next-prompt" id="nextPromptBtn">
-      <span>Continue to Scrapbook</span>
-      <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+    <button class="ctrl-btn" id="fsBtn" aria-label="Fullscreen">
+      <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
     </button>
   </div>
+
+  <!-- Floating Scroll Down Prompt to Scrapbook -->
+  <button class="scroll-next-pill" id="scrollNextBtn">
+    <span>Scrapbook</span>
+    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+  </button>
 </div>
 
 <script>
   const mainVideo = document.getElementById('mainVideo');
-  const ambientVideo = document.getElementById('ambientVideo');
-  const playerContainer = document.getElementById('playerContainer');
   const playBtn = document.getElementById('playBtn');
   const replayBtn = document.getElementById('replayBtn');
   const muteBtn = document.getElementById('muteBtn');
   const fsBtn = document.getElementById('fsBtn');
-  const seekWrap = document.getElementById('seekWrap');
+  const seekTrack = document.getElementById('seekTrack');
   const seekFill = document.getElementById('seekFill');
-  const timeDisplay = document.getElementById('timeDisplay');
+  const timeText = document.getElementById('timeText');
   const centerBadge = document.getElementById('centerBadge');
   const badgePlayIcon = document.getElementById('badgePlayIcon');
   const badgePauseIcon = document.getElementById('badgePauseIcon');
-  const nextPromptBtn = document.getElementById('nextPromptBtn');
+  const floatingControls = document.getElementById('floatingControls');
+  const scrollNextBtn = document.getElementById('scrollNextBtn');
+  const videoViewport = document.getElementById('videoViewport');
 
-  // Video sync for ambient background
-  function syncAmbient() {
-    if (Math.abs(ambientVideo.currentTime - mainVideo.currentTime) > 0.3) {
-      ambientVideo.currentTime = mainVideo.currentTime;
-    }
+  // Auto-hide floating controls after 2.5s idle
+  let hideTimer;
+  function showControlsBriefly() {
+    floatingControls.classList.add('visible');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      floatingControls.classList.remove('visible');
+    }, 2500);
   }
 
+  videoViewport.addEventListener('mousemove', showControlsBriefly);
+  videoViewport.addEventListener('touchstart', showControlsBriefly, { passive: true });
+
+  // Time & Progress update
   mainVideo.addEventListener('timeupdate', () => {
-    syncAmbient();
     const cur = mainVideo.currentTime || 0;
     const dur = mainVideo.duration || 5;
     const pct = (cur / dur) * 100;
     seekFill.style.width = pct + '%';
-    timeDisplay.textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
+    timeText.textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
   });
 
   function formatTime(s) {
@@ -488,18 +340,18 @@
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   }
 
+  // Toggle Play / Pause
   function togglePlay() {
     if (mainVideo.paused) {
       mainVideo.play();
-      ambientVideo.play();
       showBadge(false);
       updatePlayIcons(false);
     } else {
       mainVideo.pause();
-      ambientVideo.pause();
       showBadge(true);
       updatePlayIcons(true);
     }
+    showControlsBriefly();
   }
 
   function showBadge(isPaused) {
@@ -522,19 +374,18 @@
 
   replayBtn.addEventListener('click', () => {
     mainVideo.currentTime = 0;
-    ambientVideo.currentTime = 0;
     mainVideo.play();
-    ambientVideo.play();
     updatePlayIcons(false);
+    showControlsBriefly();
   });
 
   // Seeking
-  seekWrap.addEventListener('click', (e) => {
-    const rect = seekWrap.getBoundingClientRect();
+  seekTrack.addEventListener('click', (e) => {
+    const rect = seekTrack.getBoundingClientRect();
     const pos = (e.clientX - rect.left) / rect.width;
     const target = pos * (mainVideo.duration || 5);
     mainVideo.currentTime = target;
-    ambientVideo.currentTime = target;
+    showControlsBriefly();
   });
 
   // Mute / Unmute
@@ -545,21 +396,21 @@
     } else {
       muteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
     }
+    showControlsBriefly();
   });
 
   // Fullscreen
   fsBtn.addEventListener('click', () => {
     if (!document.fullscreenElement) {
-      playerContainer.requestFullscreen().catch(() => {});
+      document.documentElement.requestFullscreen().catch(() => {});
     } else {
       document.exitFullscreen().catch(() => {});
     }
   });
 
-  // Autoplay handler
+  // Autoplay
   window.addEventListener('DOMContentLoaded', () => {
     mainVideo.play().catch(() => {});
-    ambientVideo.play().catch(() => {});
   });
 
   // Scroll to Next Section (section-2: Scrapbook)
@@ -587,7 +438,7 @@
     } catch (e) {}
   }
 
-  nextPromptBtn.addEventListener('click', scrollToNext);
+  scrollNextBtn.addEventListener('click', scrollToNext);
 
   // Wheel event forwarding to parent snap-container
   window.addEventListener('wheel', (e) => {
@@ -626,53 +477,6 @@
       scrollToPrev();
     }
   });
-
-  // Background floating sparkle particles
-  (function initSparkles() {
-    const canvas = document.getElementById('sparkleCanvas');
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    for (let i = 0; i < 40; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 2 + 0.5,
-        speedY: -(Math.random() * 0.4 + 0.15),
-        speedX: (Math.random() - 0.5) * 0.25,
-        opacity: Math.random() * 0.7 + 0.2,
-        hue: Math.random() > 0.4 ? 330 : 280
-      });
-    }
-
-    function render() {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        p.y += p.speedY;
-        p.x += p.speedX;
-        if (p.y < 0) {
-          p.y = height + 10;
-          p.x = Math.random() * width;
-        }
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${p.hue}, 80%, 75%, ${p.opacity})`;
-        ctx.shadowColor = `hsla(${p.hue}, 90%, 70%, 0.8)`;
-        ctx.shadowBlur = 8;
-        ctx.fill();
-      });
-      requestAnimationFrame(render);
-    }
-    render();
-  })();
 </script>
 
 </body>
