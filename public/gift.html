@@ -610,10 +610,10 @@
       </div>
     </div>
 
-    <!-- Scroll down indicator -->
+    <!-- Scroll to Top / Replay indicator -->
     <button class="scroll-down-hint" id="scrollDownBtn">
-      <span>Continue Celebration</span>
-      <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      <span>Replay from Beginning ↺</span>
+      <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
     </button>
   </div>
 </div>
@@ -868,11 +868,11 @@
   function scrollToNext() {
     try {
       const parentContainer = window.parent.document.getElementById('main-scroll-container');
-      const target = window.parent.document.getElementById('section-3');
+      const target = window.parent.document.getElementById('section-1');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       } else if (parentContainer) {
-        parentContainer.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        parentContainer.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } catch (e) {}
   }
@@ -880,7 +880,7 @@
   function scrollToPrev() {
     try {
       const parentContainer = window.parent.document.getElementById('main-scroll-container');
-      const target = window.parent.document.getElementById('section-2');
+      const target = window.parent.document.getElementById('section-6');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       } else if (parentContainer) {
