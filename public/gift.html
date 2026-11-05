@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>What I Love About You - Real Claw Machine</title>
 <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -38,42 +38,71 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 0.5rem 0.8rem;
+    padding: clamp(4px, 1vh, 8px) clamp(6px, 1.5vw, 12px) clamp(6px, 1.2vh, 12px);
     overflow: hidden;
     background: radial-gradient(circle at 50% 25%, #fff5f8 0%, #fde6f0 55%, #f4d0e2 100%);
   }
 
-  /* Machine Card Frame */
+  /* Machine Card Frame - responsive to any mobile phone screen */
   .claw-machine-card {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    height: 96vh;
-    max-height: 820px;
+    max-width: 420px;
+    height: 100%;
+    max-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     z-index: 10;
+  }
+
+  /* Top Banner Wrapper with Cute Corner Accent */
+  .title-banner-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: clamp(3px, 0.7vh, 6px);
+  }
+
+  .corner-deco-badge {
+    position: absolute;
+    left: clamp(2px, 1.5vw, 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(1.1rem, 3.8vw, 1.35rem);
+    filter: drop-shadow(0 2px 4px rgba(220, 100, 150, 0.35));
+    animation: decoBounce 2.5s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  @keyframes decoBounce {
+    0%, 100% { transform: translateY(-50%) rotate(-4deg); }
+    50% { transform: translateY(calc(-50% - 4px)) rotate(4deg); }
   }
 
   /* Top Banner: "What I love about you" */
   .title-banner {
-    width: 90%;
+    width: 86%;
+    max-width: 320px;
     background: #ffffff;
     border-radius: 9999px;
-    padding: 0.5rem 1.4rem;
+    padding: clamp(0.32rem, 0.9vh, 0.48rem) clamp(0.8rem, 3vw, 1.2rem);
     box-shadow: 0 4px 16px rgba(220, 140, 175, 0.22);
     text-align: center;
-    margin-bottom: 0.45rem;
     border: 1.5px solid rgba(255, 215, 230, 0.9);
   }
 
   .title-banner h1 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.25rem;
+    font-size: clamp(0.96rem, 3.8vw, 1.22rem);
     font-weight: 700;
     color: #2b1d24;
     letter-spacing: -0.01em;
+    white-space: nowrap;
   }
 
   /* Arcade Machine Outer Body */
@@ -81,8 +110,9 @@
     position: relative;
     width: 100%;
     flex: 1;
+    min-height: 0;
     background: linear-gradient(180deg, #ffadc3 0%, #ff9bb6 45%, #f4809f 100%);
-    border-radius: 36px 36px 26px 26px;
+    border-radius: clamp(26px, 5vw, 36px) clamp(26px, 5vw, 36px) clamp(20px, 4vw, 26px) clamp(20px, 4vw, 26px);
     box-shadow: 
       0 18px 42px rgba(180, 70, 110, 0.3),
       inset 0 3px 6px rgba(255, 255, 255, 0.8),
@@ -91,7 +121,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.6rem 0.75rem 0.75rem;
+    padding: clamp(0.45rem, 1vh, 0.65rem) clamp(0.55rem, 1.8vw, 0.75rem) clamp(0.55rem, 1.2vh, 0.75rem);
     overflow: hidden;
   }
 
@@ -99,7 +129,7 @@
   .machine-roof {
     position: relative;
     width: 100%;
-    height: 48px;
+    height: clamp(38px, 5.8vh, 46px);
     background: linear-gradient(180deg, #b897f2 0%, #9974df 100%);
     border-radius: 24px 24px 10px 10px;
     border: 2px solid #e2cbff;
@@ -107,7 +137,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.4rem;
+    margin-bottom: clamp(3px, 0.7vh, 6px);
+    flex-shrink: 0;
   }
 
   /* Roof Marquee Bulbs */
@@ -161,7 +192,7 @@
     position: relative;
     width: 100%;
     flex: 1;
-    min-height: 250px;
+    min-height: 180px;
     background: #fbf1f6;
     background-image: radial-gradient(#edd3df 1.3px, transparent 1.3px);
     background-size: 14px 14px;
@@ -443,20 +474,21 @@
     width: 100%;
     background: #ffffff;
     border-radius: 16px;
-    margin: 0.5rem 0 0.4rem;
-    padding: 0.4rem 0.85rem;
+    margin: clamp(3px, 0.7vh, 6px) 0;
+    padding: clamp(0.2rem, 0.6vh, 0.35rem) clamp(0.55rem, 2vw, 0.85rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 3px 8px rgba(180, 80, 120, 0.15);
+    flex-shrink: 0;
   }
 
   .prize-slot-display {
     background: #fdf2f6;
     border: 1.5px solid #f8c1d5;
     border-radius: 8px;
-    padding: 0.2rem 0.65rem;
-    font-size: 0.72rem;
+    padding: 0.18rem 0.55rem;
+    font-size: clamp(0.66rem, 2vw, 0.72rem);
     font-family: 'Space Mono', monospace;
     color: #d84570;
     display: flex;
@@ -465,8 +497,8 @@
   }
 
   .mini-coin-slot {
-    width: 34px;
-    height: 18px;
+    width: 32px;
+    height: 16px;
     background: #4a2c3a;
     border-radius: 4px;
     display: flex;
@@ -475,7 +507,7 @@
   }
   .mini-coin-slot::after {
     content: '♥';
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: #ff8da1;
   }
 
@@ -483,19 +515,21 @@
   .controls-panel {
     width: 100%;
     background: #ffffff;
-    border-radius: 30px;
-    padding: 0.65rem 0.9rem;
+    border-radius: clamp(22px, 5vw, 30px);
+    padding: clamp(0.4rem, 1vh, 0.65rem) clamp(0.55rem, 2vw, 0.9rem);
     box-shadow: 0 6px 20px rgba(180, 80, 120, 0.22);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 4px;
+    flex-shrink: 0;
   }
 
   /* Real 3D Analog Joystick with 3D Chrome Shaft & Draggable Knob */
   .joystick-pad {
     position: relative;
-    width: 82px;
-    height: 82px;
+    width: clamp(66px, 18vw, 82px);
+    height: clamp(66px, 18vw, 82px);
     background: radial-gradient(circle at 50% 50%, #fdf2f6 0%, #f7d5e2 100%);
     border-radius: 50%;
     border: 2px solid #ffccd9;
@@ -504,41 +538,44 @@
     align-items: center;
     justify-content: center;
     touch-action: none;
+    -webkit-touch-callout: none;
+    flex-shrink: 0;
   }
 
   .pad-arrow {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #f4809f;
-    font-size: 0.8rem;
+    font-size: clamp(0.65rem, 2vw, 0.78rem);
     pointer-events: none;
   }
-  .arrow-u { top: 4px; }
-  .arrow-d { bottom: 4px; }
-  .arrow-l { left: 4px; }
-  .arrow-r { right: 4px; }
+  .arrow-u { top: 3px; }
+  .arrow-d { bottom: 3px; }
+  .arrow-l { left: 3px; }
+  .arrow-r { right: 3px; }
 
   /* Interactive Joystick Knob with Chrome Shaft */
   .joystick-base {
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: clamp(34px, 10vw, 44px);
+    height: clamp(34px, 10vw, 44px);
     cursor: grab;
     display: flex;
     align-items: center;
     justify-content: center;
+    touch-action: none;
   }
   .joystick-base:active {
     cursor: grabbing;
   }
 
   .joystick-knob {
-    width: 38px;
-    height: 38px;
+    width: clamp(30px, 9vw, 38px);
+    height: clamp(30px, 9vw, 38px);
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #ffccd8 0%, #ff829b 55%, #df4d6e 100%);
     box-shadow: 0 5px 12px rgba(180, 50, 90, 0.45), inset 0 2px 4px rgba(255,255,255,0.7);
@@ -546,23 +583,25 @@
     transform: translate(0px, 0px);
     transition: transform 0.08s ease-out;
     will-change: transform;
+    touch-action: none;
   }
 
   /* Instructions */
   .instruction-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.15rem;
+    font-size: clamp(0.92rem, 2.9vw, 1.15rem);
     font-weight: 700;
     color: #8c5a6f;
-    line-height: 1.25;
+    line-height: 1.18;
     text-align: center;
-    max-width: 130px;
+    max-width: clamp(96px, 28vw, 130px);
+    user-select: none;
   }
 
   /* Big 3D Spring-loaded GRAB Button */
   .grab-btn {
-    width: 76px;
-    height: 76px;
+    width: clamp(66px, 18vw, 76px);
+    height: clamp(66px, 18vw, 76px);
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, #ff8da1 0%, #f43f5e 60%, #bd1a42 100%);
     border: 3.5px solid #ffffff;
@@ -572,7 +611,7 @@
       inset 0 -5px 10px rgba(140, 15, 45, 0.4);
     color: #ffffff;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.92rem;
+    font-size: clamp(0.78rem, 2.5vw, 0.92rem);
     font-weight: 800;
     letter-spacing: 0.05em;
     cursor: pointer;
@@ -581,6 +620,8 @@
     justify-content: center;
     transition: all 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     outline: none;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .grab-btn:hover {
@@ -600,12 +641,12 @@
 
   /* Replay Pill */
   .replay-pill {
-    margin-top: 0.45rem;
+    margin-top: clamp(2px, 0.6vh, 6px);
     background: rgba(255, 255, 255, 0.75);
     border: 1px solid rgba(255, 200, 220, 0.95);
     border-radius: 9999px;
-    padding: 0.35rem 1rem;
-    font-size: 0.72rem;
+    padding: clamp(0.22rem, 0.5vh, 0.35rem) clamp(0.7rem, 2.5vw, 1rem);
+    font-size: clamp(0.66rem, 2vw, 0.72rem);
     font-family: 'Space Mono', monospace;
     color: #a8557a;
     display: flex;
@@ -614,6 +655,8 @@
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(180, 80, 120, 0.1);
     transition: all 0.2s ease;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .replay-pill:hover {
@@ -648,6 +691,10 @@
     position: relative;
     width: 100%;
     max-width: 440px;
+    max-height: 88dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     background: #ffffff;
     border-radius: 32px;
     border: 3.5px solid #ffccd9;
@@ -678,6 +725,7 @@
     font-size: 2.1rem;
     margin-top: -1.6rem;
     border: 3px solid #fff;
+    flex-shrink: 0;
   }
 
   .prize-subtitle {
@@ -690,16 +738,19 @@
 
   .prize-message-box {
     width: 100%;
+    max-height: 48vh;
+    overflow-y: auto;
     background: #fdf5f8;
     border-radius: 20px;
     border: 1.5px solid #fedee8;
     padding: 1.4rem 1.25rem;
     box-shadow: inset 0 2px 6px rgba(180, 60, 100, 0.05);
+    -webkit-overflow-scrolling: touch;
   }
 
   .prize-message-text {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1rem, 2.8vw, 1.18rem);
+    font-size: clamp(0.96rem, 2.8vw, 1.18rem);
     line-height: 1.65;
     color: #2b1d24;
     font-weight: 600;
@@ -725,6 +776,7 @@
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(244, 63, 94, 0.35);
     transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .play-again-btn:hover {
@@ -742,11 +794,113 @@
     font-size: 0.74rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .close-modal-btn:hover {
     background: #fdf5f8;
     color: #e63965;
+  }
+
+  /* ---------------- Responsive Styles for Mobile Phone Screens ---------------- */
+  @media (max-width: 480px) {
+    .game-viewport {
+      padding: 4px 6px 6px;
+    }
+
+    .claw-machine-card {
+      max-width: 100%;
+    }
+
+    .title-banner {
+      width: 90%;
+      padding: 0.34rem 0.85rem;
+    }
+
+    .machine-frame {
+      padding: 0.45rem 0.55rem 0.55rem;
+      border-radius: 26px 26px 20px 20px;
+    }
+
+    .glass-chamber {
+      min-height: 180px;
+    }
+
+    .controls-panel {
+      padding: 0.45rem 0.6rem;
+      border-radius: 22px;
+    }
+
+    .instruction-text {
+      max-width: 105px;
+    }
+  }
+
+  /* Ultra compact mode for short devices (iPhone SE, landscape, or browser toolbar open) */
+  @media (max-height: 720px) {
+    .game-viewport {
+      padding: 2px 4px 4px;
+    }
+
+    .title-banner-wrapper {
+      margin-bottom: 2px;
+    }
+
+    .title-banner {
+      padding: 0.24rem 0.7rem;
+    }
+
+    .title-banner h1 {
+      font-size: 0.95rem;
+    }
+
+    .machine-frame {
+      padding: 0.35rem 0.45rem 0.45rem;
+    }
+
+    .machine-roof {
+      height: 36px;
+      margin-bottom: 3px;
+    }
+
+    .roof-sign {
+      padding: 0.16rem 0.75rem;
+    }
+
+    .roof-sign span {
+      font-size: 0.74rem;
+    }
+
+    .glass-chamber {
+      min-height: 155px;
+    }
+
+    .middle-bezel {
+      margin: 2px 0;
+      padding: 0.18rem 0.5rem;
+    }
+
+    .controls-panel {
+      padding: 0.35rem 0.5rem;
+      border-radius: 20px;
+    }
+
+    .joystick-pad {
+      width: 62px;
+      height: 62px;
+    }
+
+    .grab-btn {
+      width: 62px;
+      height: 62px;
+      font-size: 0.8rem;
+    }
+
+    .replay-pill {
+      margin-top: 2px;
+      padding: 0.18rem 0.6rem;
+      font-size: 0.65rem;
+    }
   }
 </style>
 </head>
@@ -754,9 +908,12 @@
 
 <div class="game-viewport">
   <div class="claw-machine-card">
-    <!-- Top Banner -->
-    <header class="title-banner">
-      <h1>What I love about you</h1>
+    <!-- Top Banner with Corner Cute Accent -->
+    <header class="title-banner-wrapper">
+      <div class="corner-deco-badge">💝</div>
+      <div class="title-banner">
+        <h1>What I love about you</h1>
+      </div>
     </header>
 
     <!-- Arcade Frame -->
@@ -914,6 +1071,17 @@
     if (!audioCtx) audioCtx = new AudioContext();
     if (audioCtx.state === 'suspended') audioCtx.resume();
   }
+
+  // Unlock Web Audio API on first touch or click (especially critical for iOS/Android mobile browsers)
+  const unlockAudio = () => {
+    initAudio();
+    window.removeEventListener('touchstart', unlockAudio);
+    window.removeEventListener('pointerdown', unlockAudio);
+    window.removeEventListener('click', unlockAudio);
+  };
+  window.addEventListener('touchstart', unlockAudio, { passive: true });
+  window.addEventListener('pointerdown', unlockAudio, { passive: true });
+  window.addEventListener('click', unlockAudio, { passive: true });
 
   let motorOsc = null;
   let motorGain = null;
@@ -1095,6 +1263,31 @@
   window.addEventListener('pointerup', handleStickEnd);
   window.addEventListener('pointercancel', handleStickEnd);
 
+  // Native touch support for mobile browsers
+  joystickPad.addEventListener('touchstart', (e) => {
+    if (isOperating) return;
+    if (e.touches.length > 0) {
+      e.preventDefault();
+      const t = e.touches[0];
+      handleStickStart(t.clientX, t.clientY);
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isDraggingStick && e.touches.length > 0) {
+      e.preventDefault();
+      const t = e.touches[0];
+      handleStickMove(t.clientX, t.clientY);
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchend', () => {
+    if (isDraggingStick) handleStickEnd();
+  });
+  window.addEventListener('touchcancel', () => {
+    if (isDraggingStick) handleStickEnd();
+  });
+
   // Clicking on any capsule auto-aims and pulls it up!
   capsules.forEach(cap => {
     cap.addEventListener('click', () => {
@@ -1142,6 +1335,18 @@
     }
   });
 
+  // Calculate dynamic drop height to touch floor capsules on any screen size
+  function getClawDropHeight() {
+    const chamber = document.querySelector('.glass-chamber');
+    if (!chamber) return 154;
+    const ch = chamber.clientHeight;
+    // Carriage top: 14px, carriage: 22px, hub: 14px, prongs: 48px -> fixed height = 98px
+    // Capsules are 40px tall, resting between bottom 24px and 58px (center around bottom 40px)
+    // To position prongs exactly over capsules: stringHeight = ch - fixedClaw - floorCapsuleOffset
+    const drop = ch - 128;
+    return Math.max(85, Math.min(280, drop));
+  }
+
   // ---------------- REAL PULL-UP GRAB EXECUTION ----------------
   function executeGrab() {
     if (isOperating) return;
@@ -1152,9 +1357,10 @@
     clawPendulum.style.transition = 'transform 0.25s ease-out';
     clawPendulum.style.transform = 'rotate(0deg)';
 
-    // Step 1: Lower the claw all the way down to touch the capsules
+    // Step 1: Lower the claw all the way down to touch the capsules (dynamic height)
     playClankSound();
-    clawString.style.height = '154px';
+    const dropTarget = getClawDropHeight();
+    clawString.style.height = dropTarget + 'px';
 
     setTimeout(() => {
       // Find closest capsule to trolleyX
@@ -1186,7 +1392,7 @@
         // Step 3: PHYSICALLY PULL THE CAPSULE UPWARD FROM THE FLOOR TO THE TOP!
         // You watch the cable reel in and hoist the capsule high into the air!
         playClankSound();
-        clawString.style.height = '38px';
+        clawString.style.height = '36px';
 
         setTimeout(() => {
           // Step 4: Crane trolley travels along the rail over to the drop chute
